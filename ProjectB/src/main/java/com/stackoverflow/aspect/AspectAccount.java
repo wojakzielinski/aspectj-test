@@ -19,6 +19,6 @@ public class AspectAccount {
     @Before("execution(* com.stackoverflow.aspect.AccountInterface.withdraw(..))")
     public void logReceivedQueueMessage(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
-        log.info("Log before process queue message DDDD:" + Arrays.toString(args));
+        log.info("Spring AOP aspect executed, args: {}", Arrays.toString(args));
     }
 }

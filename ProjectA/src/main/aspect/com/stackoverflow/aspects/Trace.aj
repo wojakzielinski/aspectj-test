@@ -1,10 +1,12 @@
 package com.stackoverflow.aspects;
 
 public aspect Trace {
+
+
     pointcut publicMethodExecuted(): execution(public !static * *(..));
 
     after(): publicMethodExecuted() {
-        System.out.printf("Enters on method: %s. \n", thisJoinPoint.getSignature());
+        System.out.printf("Pure aspect exectued: ", thisJoinPoint.getSignature());
 
         Object[] arguments = thisJoinPoint.getArgs();
         for (int i =0; i < arguments.length; i++){
